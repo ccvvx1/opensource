@@ -11,4 +11,4 @@ git add *.bat
 @echo off
 echo %var%
 git commit -m "%var%"
-git push
+git push origin master:master
