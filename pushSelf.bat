@@ -8,6 +8,8 @@ echo 您输入的备注内容为%var%
 git pull
 git add *.ipynb
 git add *.bat
+git add windowScript\*
+git add linuxScript\*
 @echo off
 echo %var%
 git commit -m "%var%"
