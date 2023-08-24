@@ -9,5 +9,6 @@ sudo echo "read only = no" >> /etc/samba/smb.conf
 sudo echo "guest ok = yes" >> /etc/samba/smb.conf
 sudo service smbd restart
 sudo apt install net-tools
+sudo chmod 777 /home/tmw
 ifconfig
 

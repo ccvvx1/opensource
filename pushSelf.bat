@@ -10,6 +10,7 @@ git add *.ipynb
 git add *.bat
 git add windowScript/*
 git add linuxScript/*
+git add ueScript/*
 @echo off
 echo %var%
 git commit -m "%var%"
