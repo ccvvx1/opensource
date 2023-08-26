@@ -208,7 +208,7 @@ if "%directionTypeValue%"=="hv" (
     echo ffmpeg -i ok1H.mp4 -vf scale=!scaleWidthPlusValue!:!scaleHeightPlusValue! -y ok2H.mp4
     ffmpeg -i ok1H.mp4 -vf scale=!scaleWidthPlusValue!:!scaleHeightPlusValue! -y ok2H.mp4
     :: 根据设置的缩放类型，对中间文件 ok1.mp4 进行缩放处理并生成中间文件 ok2.mp4
-    sffmpeg -i ok1V.mp4 -vf scale=!scaleWidthValueV!:!scaleHeightValue! -y ok2V.mp4    
+    ffmpeg -i ok1V.mp4 -vf scale=!scaleWidthValueV!:!scaleHeightValue! -y ok2V.mp4    
 ) else (
     :: 根据设置的缩放类型，对中间文件 ok1.mp4 进行缩放处理并生成中间文件 ok2.mp4
     ffmpeg -i ok1.mp4 -vf scale=%scaleWidthValue%:%scaleHeightValue% -y ok2.mp4
