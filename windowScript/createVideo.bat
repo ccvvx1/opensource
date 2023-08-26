@@ -167,12 +167,12 @@ if "%directionTypeValue%"=="h" (
         echo %number% width can be divided by %divisor%.
         set scaleWidthValueV=!Width!*%scaleHeightValue%/!height!
     ) else (
-        echo %number% cannot be divided by %divisor%.
+        echo %number% width cannot be divided by %divisor%.
         set scaleWidthValueV=!Width!*%scaleHeightValue%/!height!
     )
     set /a scaleWidthPlusValue=!scaleWidthValue!+!scaleWidthValueV!
     
-    set /a "number=!heightH!*%scaleWidthPlusValue%*10/!widthH!"
+    set /a "number=!heightH!*!scaleWidthPlusValue!*10/!widthH!"
     set "divisor=20"
 
     set /a "remainder=!number! %% !divisor!"
@@ -180,8 +180,9 @@ if "%directionTypeValue%"=="h" (
         echo %number% height can be divided by %divisor%.
         set scaleHeightPlusValue=-1
     ) else (
-        echo %number% cannot be divided by %divisor%.
-        set scaleHeightPlusValue=!heightH!*%scaleWidthPlusValue%/!WidthH!
+        echo %number% height cannot be divided by %divisor%.
+        set /a scaleHeightPlusValue=!heightH!*!scaleWidthPlusValue!/!WidthH!
+        echo scaleHeightPlusValue: !scaleHeightPlusValue!
     )
 ) else (
     set /a "number=!Width!*%scaleHeightValue%*10/!height!"
@@ -198,14 +199,16 @@ if "%directionTypeValue%"=="h" (
 )
 
 
-
+echo scaleWidthPlusValue: !scaleWidthPlusValue!
+echo scaleHeightPlusValue: !scaleHeightPlusValue!
 
 
 if "%directionTypeValue%"=="hv" ( 
     :: 根据设置的缩放类型，对中间文件 ok1.mp4 进行缩放处理并生成中间文件 ok2.mp4
-    ffmpeg -i ok1H.mp4 -vf scale=%scaleWidthPlusValue%:%scaleHeightPlusValue% -y ok2H.mp4
+    echo ffmpeg -i ok1H.mp4 -vf scale=!scaleWidthPlusValue!:!scaleHeightPlusValue! -y ok2H.mp4
+    ffmpeg -i ok1H.mp4 -vf scale=!scaleWidthPlusValue!:!scaleHeightPlusValue! -y ok2H.mp4
     :: 根据设置的缩放类型，对中间文件 ok1.mp4 进行缩放处理并生成中间文件 ok2.mp4
-    ffmpeg -i ok1V.mp4 -vf scale=%scaleWidthValueV%:%scaleHeightValue% -y ok2V.mp4    
+    sffmpeg -i ok1V.mp4 -vf scale=!scaleWidthValueV!:!scaleHeightValue! -y ok2V.mp4    
 ) else (
     :: 根据设置的缩放类型，对中间文件 ok1.mp4 进行缩放处理并生成中间文件 ok2.mp4
     ffmpeg -i ok1.mp4 -vf scale=%scaleWidthValue%:%scaleHeightValue% -y ok2.mp4
