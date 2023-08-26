@@ -7,12 +7,12 @@ set "symbolicLinkType=%3"
 set "symbolicLinkTypeValue=%4"
 
 if "%folderA%"=="" (
-    echo "Usage: %0 source destination_folder [-s b|f]"
+    echo Usage: %0 source destination_folder [-s b^|f]
     exit /b
 )
 
 if "%folderB%"=="" (
-    echo "Usage: %0 source destination_folder [-s b|f]"
+    echo Usage: %0 source destination_folder [-s b^|f]
     exit /b
 )
 
@@ -22,11 +22,10 @@ if "%symbolicLinkType%"=="-s" (
     ) else if "%symbolicLinkTypeValue%"=="f" (
         mklink /J "U:\application\%folderA%" "%folderB%"
     ) else (
-        echo "%symbolicLinkTypeValue%"
         echo Invalid symbolic link type.
     )
 ) else (
-    echo "Usage: %0 source destination_folder [-s b|f]"
+    echo Usage: %0 source destination_folder [-s b^|f]
 )
 
 endlocal
