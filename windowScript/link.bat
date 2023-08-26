@@ -1,10 +1,10 @@
 @echo off
 setlocal
 
-set "folderA=%1"
-set "folderB=%2"
-set "symbolicLinkType=%3"
-set "symbolicLinkTypeValue=%4"
+set "folderA=%~1"
+set "folderB=%~2"
+set "symbolicLinkType=%~3"
+set "symbolicLinkTypeValue=%~4"
 
 if "%folderA%"=="" (
     echo Usage: %0 source destination_folder [-s b^|f]
