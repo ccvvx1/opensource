@@ -99,7 +99,7 @@ if "%directionTypeValue%"=="hv" (
 )
 
 :: 使用 FFmpeg 获取影片信息
-for /f "tokens=* delims=:=x[ " %%A in ('ffmpeg -i %video_file% 2^>^&1 ^| findstr /C:"Stream #0:0"') do (
+for /f "tokens=* delims=:=x[ " %%A in ('ffmpeg -i !video_file! 2^>^&1 ^| findstr /C:"Stream #0:0"') do (
     set "video_info=%%A"
 
     :: 使用一个额外的循环来遍历每个 token
@@ -118,6 +118,33 @@ for /f "tokens=* delims=:=x[ " %%A in ('ffmpeg -i %video_file% 2^>^&1 ^| findstr
 )
 echo Width: !width!
 echo Height: !height!
+
+if "%directionTypeValue%"=="hv" ( 
+    set "video_file=ok1H.mp4"  :: 替换为实际的视频文件名
+    
+    :: 使用 FFmpeg 获取影片信息
+    for /f "tokens=* delims=:=x[ " %%A in ('ffmpeg -i !video_file! 2^>^&1 ^| findstr /C:"Stream #0:0"') do (
+        set "video_info=%%A"
+
+        :: 使用一个额外的循环来遍历每个 token
+        for %%B in (!video_info!) do (
+          ::echo Token: %%B
+          echo %%B | find "x" > nul
+          if not errorlevel 1 (
+                :: 根据 "x" 字符进行分割并提取宽度和高度
+                for /f "tokens=1,2 delims=x" %%X in ("%%B") do (
+                    set "widthH=%%X"
+                    set "heightH=%%Y"
+                )
+
+           )
+         )
+    )
+    echo Width_H: !widthH!
+    echo Height_H: !heightH!
+)
+
+
 
 if "%directionTypeValue%"=="h" (
     set /a "number=!height!*%scaleWidthValue%*10/!width!"
@@ -144,6 +171,18 @@ if "%directionTypeValue%"=="h" (
         set scaleWidthValueV=!Width!*%scaleHeightValue%/!height!
     )
     set /a scaleWidthPlusValue=!scaleWidthValue!+!scaleWidthValueV!
+    
+    set /a "number=!heightH!*%scaleWidthPlusValue%*10/!widthH!"
+    set "divisor=20"
+
+    set /a "remainder=!number! %% !divisor!"
+    if !remainder! equ 0 (
+        echo %number% height can be divided by %divisor%.
+        set scaleHeightPlusValue=-1
+    ) else (
+        echo %number% cannot be divided by %divisor%.
+        set scaleHeightPlusValue=!heightH!*%scaleWidthPlusValue%/!WidthH!
+    )
 ) else (
     set /a "number=!Width!*%scaleHeightValue%*10/!height!"
     set "divisor=20"
@@ -164,7 +203,7 @@ if "%directionTypeValue%"=="h" (
 
 if "%directionTypeValue%"=="hv" ( 
     :: 根据设置的缩放类型，对中间文件 ok1.mp4 进行缩放处理并生成中间文件 ok2.mp4
-    ffmpeg -i ok1H.mp4 -vf scale=%scaleWidthPlusValue%:-1 -y ok2H.mp4
+    ffmpeg -i ok1H.mp4 -vf scale=%scaleWidthPlusValue%:%scaleHeightPlusValue% -y ok2H.mp4
     :: 根据设置的缩放类型，对中间文件 ok1.mp4 进行缩放处理并生成中间文件 ok2.mp4
     ffmpeg -i ok1V.mp4 -vf scale=%scaleWidthValueV%:%scaleHeightValue% -y ok2V.mp4    
 ) else (
