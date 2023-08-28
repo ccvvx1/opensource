@@ -2,6 +2,7 @@
 
 sudo apt install samba
 mkdir /home/tmw/shared
+sudo chmod 777 -R /home/tmw/shared
 sudo chmod 777 /etc/samba/smb.conf
 sudo echo "[shared]" >> /etc/samba/smb.conf
 sudo echo "path = /home/tmw/shared" >> /etc/samba/smb.conf

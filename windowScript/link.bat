@@ -7,17 +7,19 @@ set "symbolicLinkType=%~3"
 set "symbolicLinkTypeValue=%~4"
 
 if "%folderA%"=="" (
-    echo Usage: %0 source destination_folder [-s b^|f]
+    echo Usage: %0 destination_folder source [-s b^|f^|bb]
     exit /b
 )
 
 if "%folderB%"=="" (
-    echo Usage: %0 source destination_folder [-s b^|f]
+    echo Usage: %0 destination_folder source [-s b^|f^|bb]
     exit /b
 )
 
 if "%symbolicLinkType%"=="-s" (
-    if "%symbolicLinkTypeValue%"=="b" (
+    if "%symbolicLinkTypeValue%"=="bb" (
+        mklink /H "U:\application\%folderA%.bat" "%folderB%"
+    ) else if "%symbolicLinkTypeValue%"=="b" (
         mklink /H "U:\application\%folderA%" "%folderB%"
     ) else if "%symbolicLinkTypeValue%"=="f" (
         mklink /J "U:\application\%folderA%" "%folderB%"
