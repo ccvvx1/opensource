@@ -12,6 +12,7 @@ echo    ========================
 echo    clion.lnk    --clion app
 echo    go.lnk       --goland app
 echo    ue.lnk       --ultraedit app
+echo    py.lnk       --pycharm app
 echo    ========================
 
 REM …Ë÷√—°œÓ
