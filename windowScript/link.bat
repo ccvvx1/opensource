@@ -27,7 +27,7 @@ if "%symbolicLinkType%"=="-s" (
         echo Invalid symbolic link type.
     )
 ) else (
-    echo Usage: %0 source destination_folder [-s b^|f]
+    echo Usage: %0 source destination_folder [-s b^|f^|bb]
 )
 
 endlocal

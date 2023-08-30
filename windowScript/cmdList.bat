@@ -11,6 +11,7 @@ echo    getSysInfo   --get System Info
 echo    ========================
 echo    clion.lnk    --clion app
 echo    go.lnk       --goland app
+echo    ue.lnk       --ultraedit app
 echo    ========================
 
 REM …Ë÷√—°œÓ
