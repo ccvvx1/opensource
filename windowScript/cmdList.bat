@@ -8,6 +8,7 @@ echo    cf           --copy folder
 echo    pc           --cmd throght proxy
 echo    cdll         --copy dll
 echo    getSysInfo   --get System Info
+echo    my           --mySys Env set up
 echo    ========================
 echo    clion.lnk    --clion app
 echo    go.lnk       --goland app
