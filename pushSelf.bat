@@ -11,6 +11,7 @@ git add *.bat
 git add windowScript/*
 git add linuxScript/*
 git add ueScript/*
+git add mysysScript/*
 @echo off
 echo %var%
 git commit -m "%var%"
