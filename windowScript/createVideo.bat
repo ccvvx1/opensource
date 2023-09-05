@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-del ok1.mp4 ok2.mp4 ok3.mp4 ok4.mp4 ok1H.mp4 ok1V.mp4 ok2H.mp4 ok2V.mp4 output.mp4 output1.mp4
+del ok1.mp4 ok2.mp4 ok3.mp4 ok4.mp4  ok2H.mp4 ok2V.mp4 output.mp4 output1.mp4
 
 :: 从参数获取设置方向的相关信息
 set "directionType=%2"
@@ -12,7 +12,7 @@ set "num_columns=%~1"
 set /a "num_columns_total=!num_columns!+1"
 
 if "%directionTypeValue%"=="" (
-    echo Usage: %0 num_columns -t [h^|v^|hv]
+    echo Usage: %0 num_columns -t [h^|v^|hv^|fhv]
     echo result mp4: output.mp4
     exit /b
 )
@@ -36,12 +36,47 @@ if "%directionType%" == "-t" (
       :: 运行 FFmpeg 命令，处理视频并生成中间文件 ok1.mp4
       ffmpeg %input_files% -filter_complex "!filter_complex!" -map "[v]" -map 0:a -y ok1.mp4
     ) else if "%directionTypeValue%"=="hv" ( 
-      set "filter_complexH=!filter_complex!hstack=inputs=%num_columns_total%[v]"
-      :: 运行 FFmpeg 命令，处理视频并生成中间文件 ok1.mp4
-      ffmpeg %input_files% -filter_complex "!filter_complexH!" -map "[v]" -map 0:a -y ok1H.mp4
-      set "filter_complexV=!filter_complex!vstack=inputs=%num_columns_total%[v]"
-      :: 运行 FFmpeg 命令，处理视频并生成中间文件 ok1.mp4
-      ffmpeg %input_files% -filter_complex "!filter_complexV!" -map "[v]" -map 0:a -y ok1V.mp4
+
+      if exist ok1H.mp4 (
+          echo ok1H.mp4文件存在          
+      ) else (
+          set "filter_complexH=!filter_complex!hstack=inputs=%num_columns_total%[v]"
+          :: 运行 FFmpeg 命令，处理视频并生成中间文件 ok1.mp4
+          ffmpeg %input_files% -filter_complex "!filter_complexH!" -map "[v]" -map 0:a -y ok1H.mp4
+          echo ok1H.mp4文件不存在
+      )
+
+      if exist ok1V.mp4 (
+          echo ok1V.mp4文件存在          
+      ) else (
+          set "filter_complexV=!filter_complex!vstack=inputs=%num_columns_total%[v]"
+          :: 运行 FFmpeg 命令，处理视频并生成中间文件 ok1.mp4
+          ffmpeg %input_files% -filter_complex "!filter_complexV!" -map "[v]" -map 0:a -y ok1V.mp4
+          echo ok1V.mp4文件不存在
+      )
+      
+    ) else if "%directionTypeValue%"=="fhv" ( 
+    
+      del ok1H.mp4 ok1V.mp4 
+
+      if exist ok1H.mp4 (
+          echo ok1H.mp4文件存在          
+      ) else (
+          set "filter_complexH=!filter_complex!hstack=inputs=%num_columns_total%[v]"
+          :: 运行 FFmpeg 命令，处理视频并生成中间文件 ok1.mp4
+          ffmpeg %input_files% -filter_complex "!filter_complexH!" -map "[v]" -map 0:a -y ok1H.mp4
+          echo ok1H.mp4文件不存在
+      )
+
+      if exist ok1V.mp4 (
+          echo ok1V.mp4文件存在          
+      ) else (
+          set "filter_complexV=!filter_complex!vstack=inputs=%num_columns_total%[v]"
+          :: 运行 FFmpeg 命令，处理视频并生成中间文件 ok1.mp4
+          ffmpeg %input_files% -filter_complex "!filter_complexV!" -map "[v]" -map 0:a -y ok1V.mp4
+          echo ok1V.mp4文件不存在
+      )
+      
     ) else (
       set "filter_complex=!filter_complex!vstack=inputs=%num_columns_total%[v]"
       :: 运行 FFmpeg 命令，处理视频并生成中间文件 ok1.mp4
