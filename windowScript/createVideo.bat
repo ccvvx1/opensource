@@ -182,42 +182,48 @@ if "%directionTypeValue%"=="hv" (
 
 
 if "%directionTypeValue%"=="h" (
-    set /a "number=!height!*%scaleWidthValue%*10/!width!"
+    set /a "number=!height!*!scaleWidthValue!*10/!width!"
     set "divisor=20"
 
     set /a "remainder=!number! %% !divisor!"
     if !remainder! equ 0 (
-        echo %number% height can be divided by %divisor%.
+        echo !number! height can be divided by !divisor!.
         set scaleHeightValue=-1
     ) else (
-        echo %number% cannot be divided by %divisor%.
-        set scaleHeightValue=!height!*%scaleWidthValue%/!Width!
+        echo !number! cannot be divided by !divisor!.
+        set scaleHeightValue=!height!*!scaleWidthValue!/!Width!
     )
 ) else if "%directionTypeValue%"=="hv" ( 
-    set /a "number=!Width!*%scaleHeightValue%*10/!height!"
+    set /a "number=!Width!*!scaleHeightValue!*10/!height!"
+    set  "numberFun=!Width!*!scaleHeightValue!*10/!height!"
     set "divisor=20"
 
     set /a "remainder=!number! %% !divisor!"
     if !remainder! equ 0 (
-        echo %number% width can be divided by %divisor%.
-        set scaleWidthValueV=!Width!*%scaleHeightValue%/!height!
+        echo !number! width can be divided by !divisor!.
+        set /a scaleWidthValueV=!Width!*!scaleHeightValue!/!height! 
+        echo scaleWidthValueV is set to  !scaleWidthValueV!.
     ) else (
-        echo %number% width cannot be divided by %divisor%.
-        set scaleWidthValueV=!Width!*%scaleHeightValue%/!height!
+        echo !number! width cannot be divided by !divisor!.fun: !numberFun!
+        set /a scaleWidthValueV=!Width!*!scaleHeightValue!/!height!+1
+        echo scaleWidthValueV is set to  !scaleWidthValueV!.
     )
     set /a scaleWidthPlusValue=!scaleWidthValue!+!scaleWidthValueV!
+    echo scaleWidthPlusValue is set to  !scaleWidthPlusValue!.
     
     set /a "number=!heightH!*!scaleWidthPlusValue!*10/!widthH!"
     set "divisor=20"
 
     set /a "remainder=!number! %% !divisor!"
     if !remainder! equ 0 (
-        echo %number% height can be divided by %divisor%.
+        echo !number! height can be divided by !divisor!.
         set scaleHeightPlusValue=-1
+        echo scaleHeightPlusValue is set to  !scaleHeightPlusValue!.
     ) else (
-        echo %number% height cannot be divided by %divisor%.
-        set /a scaleHeightPlusValue=!heightH!*!scaleWidthPlusValue!/!WidthH!
+        echo !number! height cannot be divided by !divisor!.
+        set /a scaleHeightPlusValue=!heightH!*!scaleWidthPlusValue!/!WidthH!+1
         echo scaleHeightPlusValue: !scaleHeightPlusValue!
+        echo scaleHeightPlusValue is set to  !scaleHeightPlusValue!.
     )
 ) else (
     set /a "number=!Width!*%scaleHeightValue%*10/!height!"
@@ -225,11 +231,11 @@ if "%directionTypeValue%"=="h" (
 
     set /a "remainder=!number! %% !divisor!"
     if !remainder! equ 0 (
-        echo %number% width can be divided by %divisor%.
+        echo !number! width can be divided by !divisor!.
         set scaleWidthValue=-1
     ) else (
-        echo %number% cannot be divided by %divisor%.
-        set scaleWidthValue=!Width!*%scaleHeightValue%/!height!
+        echo !number! cannot be divided by !divisor!.
+        set scaleWidthValue=!Width!*!scaleHeightValue!/!height!
     )
 )
 
