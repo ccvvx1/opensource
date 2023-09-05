@@ -204,11 +204,11 @@ if "%directionTypeValue%"=="h" (
         set /a scaleWidthValueV=!Width!*!scaleHeightValue!/!height! 
         echo scaleWidthValueV is set to  !scaleWidthValueV!.
     ) else (
-        echo !number! width cannot be divided by !divisor!.fun: !numberFun!
-        set /a scaleWidthValueV=!Width!*!scaleHeightValue!/!height!+1
+        echo !number! width cannot be divided by !divisor!.function: !numberFun!
+        set /a scaleWidthValueV=!Width!*!scaleHeightValue!/!height!+2
         echo scaleWidthValueV is set to  !scaleWidthValueV!.
     )
-    set /a scaleWidthPlusValue=!scaleWidthValue!+!scaleWidthValueV!
+    set /a scaleWidthPlusValue=!scaleWidthValue!+!scaleWidthValueV!+!scaleWidthValueV!
     echo scaleWidthPlusValue is set to  !scaleWidthPlusValue!.
     
     set /a "number=!heightH!*!scaleWidthPlusValue!*10/!widthH!"
@@ -221,7 +221,7 @@ if "%directionTypeValue%"=="h" (
         echo scaleHeightPlusValue is set to  !scaleHeightPlusValue!.
     ) else (
         echo !number! height cannot be divided by !divisor!.
-        set /a scaleHeightPlusValue=!heightH!*!scaleWidthPlusValue!/!WidthH!+1
+        set /a scaleHeightPlusValue=!heightH!*!scaleWidthPlusValue!/!WidthH!
         echo scaleHeightPlusValue: !scaleHeightPlusValue!
         echo scaleHeightPlusValue is set to  !scaleHeightPlusValue!.
     )
@@ -261,8 +261,9 @@ if "%directionTypeValue%"=="h" (
 ) else if "%directionTypeValue%"=="hv" ( 
     :: 运行 FFmpeg 命令，将原始视频 ok.mp4 和缩放后的视频 ok2.mp4 垂直堆叠，并生成最终输出文件 output.mp4
     ffmpeg  -i ok.mp4  -i ok2V.mp4  -filter_complex "[0:v][1:v]hstack=inputs=2[v]" -map "[v]" -map 0:a -y output1.mp4
+    ffmpeg  -i output1.mp4  -i ok2V.mp4  -filter_complex "[0:v][1:v]hstack=inputs=2[v]" -map "[v]" -map 0:a -y output2.mp4
     :: 运行 FFmpeg 命令，将原始视频 ok.mp4 和缩放后的视频 ok2.mp4 垂直堆叠，并生成最终输出文件 output.mp4
-    ffmpeg  -i output1.mp4  -i ok2H.mp4  -filter_complex "[0:v][1:v]vstack=inputs=2[v]" -map "[v]" -map 0:a -y output.mp4
+    ffmpeg  -i output2.mp4  -i ok2H.mp4  -filter_complex "[0:v][1:v]vstack=inputs=2[v]" -map "[v]" -map 0:a -y output.mp4
 ) else (
     :: 运行 FFmpeg 命令，将原始视频 ok.mp4 和缩放后的视频 ok2.mp4 垂直堆叠，并生成最终输出文件 output.mp4
     ffmpeg  -i ok.mp4  -i ok2.mp4  -filter_complex "[0:v][1:v]hstack=inputs=2[v]" -map "[v]" -map 0:a -y output.mp4
