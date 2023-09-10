@@ -5,4 +5,5 @@ echo    rp             --newest repo
 echo    rpr            --run repo docker
 echo    cl             --cmd list
 echo    tmp            --show tmp content
+echo    wtmp           --write to tmp file
 echo    ========================
