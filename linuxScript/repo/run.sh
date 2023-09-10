@@ -1,9 +1,9 @@
 #!/bin/bash
 
-if [ "$#" -ne 2 ]; then
-	    echo "usage: $0 <mount path>"
+if [ "$#" -ne 1 ]; then
+	    echo "usage: $0 "
 	        exit 1
 fi
 
-docker run -it --rm --hostname redroid-builder --name redroid-builder -v "$2:/src" redroid-builder
+sudo docker run -it --rm --hostname redroid-builder --name redroid-builder -v "$1:/src" redroid-builder
 
