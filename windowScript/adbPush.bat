@@ -1,0 +1,1 @@
+adb push rateResult.html /storage/emulated/0/Android/media/com.ldlywt.camera/News/

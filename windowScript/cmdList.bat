@@ -12,6 +12,7 @@ echo    my           --mySys Env set up
 echo    webp         --changeJpg2Webp
 echo    ff           --create video
 echo    pr           --setProxy
+echo    ap           --adb push
 echo    ========================
 echo    clion.lnk    --clion app
 echo    go.lnk       --goland app

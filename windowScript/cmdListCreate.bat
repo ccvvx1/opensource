@@ -1,0 +1,12 @@
+ml clc.bat cmdListCreate.bat -s b
+ml ap.bat adbPush.bat -s b
+ml df.bat delFolder.bat -s b
+ml cf.bat copyFolder.bat -s b
+ml pc.bat setupAllProxy.bat -s b
+ml cdll.bat cpDll.bat -s b
+ml getSysInfo.bat getSysInfo.bat -s b
+ml my.bat mySysEnv.bat -s b
+ml webp.bat changeJpg2Webp.bat -s b
+ml ff.bat createVideo.bat -s b
+ml pr.bat setProxy.bat -s b
+ml ap.bat adbPush.bat -s b
