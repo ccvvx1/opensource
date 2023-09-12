@@ -9,4 +9,5 @@ echo    wtmp           --write to tmp file
 echo    mem            --change swap mem size
 echo    proxy          --set proxy
 echo    clc            --create cmd list
+echo    mi             --mount and image and create docker
 echo    ======================================
