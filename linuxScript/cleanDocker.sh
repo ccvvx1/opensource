@@ -1,0 +1,1 @@
+sudoc docker image prune

@@ -8,3 +8,4 @@ sudo ml changeSwapMem.sh mem
 sudo ml setProxy.sh proxy
 sudo ml cmdListCreate.sh clc
 sudo ml repo/mountImage.sh mi
+sudo ml cleanDocker.sh cleard
