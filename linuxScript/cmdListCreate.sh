@@ -7,4 +7,4 @@ sudo ml write2Tmp.sh wtmp
 sudo ml changeSwapMem.sh mem
 sudo ml setProxy.sh proxy
 sudo ml cmdListCreate.sh clc
-sudo ml mountImage.sh mi
+sudo ml repo/mountImage.sh mi
