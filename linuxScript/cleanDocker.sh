@@ -1,1 +1,1 @@
-sudoc docker image prune
+sudo docker image prune
