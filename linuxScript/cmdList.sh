@@ -11,4 +11,5 @@ echo    proxy          --set proxy
 echo    clc            --create cmd list
 echo    mi             --mount and image and create docker
 echo    cleard         --clear docker cache
+echo    chrome         --start chrome by proxy
 echo    ======================================
