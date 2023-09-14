@@ -12,9 +12,18 @@ set proxy_port=%~1
 set http_proxy=http://localhost:%proxy_port%
 set https_proxy=http://localhost:%proxy_port%
 
-:: 设置永久环境变量，以便在新的 CMD 会话中生效
-setx http_proxy "%http_proxy%" /m
-setx https_proxy "%https_proxy%" /m
 
-echo HTTP_PROXY is set to %http_proxy%
-echo HTTPS_PROXY is set to %https_proxy%
+if "%~1"=="0" (
+    setx http_proxy "" /m
+    setx https_proxy "" /m
+    echo HTTP_PROXY is unset
+    echo HTTPS_PROXY is unset
+) else (
+    :: 设置永久环境变量，以便在新的 CMD 会话中生效
+    setx http_proxy "%http_proxy%" /m
+    setx https_proxy "%https_proxy%" /m
+    echo HTTP_PROXY is set to %http_proxy%
+    echo HTTPS_PROXY is set to %https_proxy%
+)
+
+
