@@ -18,6 +18,8 @@ call :executeCommand "ml webp.bat changeJpg2Webp.bat -s b"
 call :executeCommand "ml ff.bat createVideo.bat -s b"
 call :executeCommand "ml pr.bat setProxy.bat -s b"
 call :executeCommand "ml ap.bat adbPush.bat -s b"
+call :executeCommand "ml pr.bat setProxy.bat -s b"
+call :executeCommand "ml prs.bat setSimpleProxy.bat -s b"
 
 :: ´òÓ¡´íÎó¼ÆÊýÆ÷
 echo Total errors: %errorCount%

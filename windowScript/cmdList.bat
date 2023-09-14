@@ -13,6 +13,7 @@ echo    webp         --changeJpg2Webp
 echo    ff           --create video
 echo    pr           --setProxy
 echo    ap           --adb push
+echo    prs          --set simple Proxy
 echo    ========================
 echo    clion.lnk    --clion app
 echo    go.lnk       --goland app
