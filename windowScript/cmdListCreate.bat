@@ -3,10 +3,26 @@
 :: 定义错误计数器
 set errorCount=0
 
-
+del u:\application\clc.bat
+del u:\application\ap.bat
+del u:\application\df.bat
+del u:\application\cf.bat
+del u:\application\pc.bat
+del u:\application\cdll.bat
+del u:\application\getSysInfo.bat
+del u:\application\my.bat
+del u:\application\webp.bat
+del u:\application\ff.bat
+del u:\application\pr.bat
+del u:\application\ap.bat
+del u:\application\pr.bat
+del u:\application\prs.bat
+del u:\application\webrtc.bat
+del u:\application\cl.bat
 
 :: 使用 executeCommand 函数执行每一行命令
 call :executeCommand "ml clc.bat cmdListCreate.bat -s b"
+call :executeCommand "ml cl.bat cmdList.bat -s b"
 call :executeCommand "ml ap.bat adbPush.bat -s b"
 call :executeCommand "ml df.bat delFolder.bat -s b"
 call :executeCommand "ml cf.bat copyFolder.bat -s b"
@@ -16,8 +32,6 @@ call :executeCommand "ml getSysInfo.bat getSysInfo.bat -s b"
 call :executeCommand "ml my.bat mySysEnv.bat -s b"
 call :executeCommand "ml webp.bat changeJpg2Webp.bat -s b"
 call :executeCommand "ml ff.bat createVideo.bat -s b"
-call :executeCommand "ml pr.bat setProxy.bat -s b"
-call :executeCommand "ml ap.bat adbPush.bat -s b"
 call :executeCommand "ml pr.bat setProxy.bat -s b"
 call :executeCommand "ml prs.bat setSimpleProxy.bat -s b"
 call :executeCommand "ml webrtc.bat webrtc.bat -s b"

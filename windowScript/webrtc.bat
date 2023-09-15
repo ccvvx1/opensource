@@ -42,6 +42,7 @@ set current_dir=%CD%
 echo Current directory is: %current_dir%
 
 cd U:\env\zhidao\src
+u:
 
 set DEPOT_TOOLS_WIN_TOOLCHAIN=0
 set GYP_GENERATORS=ninja,msvs-ninja
