@@ -19,6 +19,7 @@ del u:\application\pr.bat
 del u:\application\prs.bat
 del u:\application\webrtc.bat
 del u:\application\cl.bat
+del u:\application\cwh.bat
 
 :: 使用 executeCommand 函数执行每一行命令
 call :executeCommand "ml clc.bat cmdListCreate.bat -s b"
@@ -35,6 +36,7 @@ call :executeCommand "ml ff.bat createVideo.bat -s b"
 call :executeCommand "ml pr.bat setProxy.bat -s b"
 call :executeCommand "ml prs.bat setSimpleProxy.bat -s b"
 call :executeCommand "ml webrtc.bat webrtc.bat -s b"
+call :executeCommand "ml cwh.bat cpWebrtcHeader.bat -s b"
 
 :: 打印错误计数器
 echo Total errors: %errorCount%

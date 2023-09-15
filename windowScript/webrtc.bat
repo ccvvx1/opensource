@@ -62,15 +62,15 @@ gn gen --target=x%build_target% --args="is_clang=false is_debug=%is_debug% use_r
 echo Building WebRTC for x%build_target% %build_type%...
 @echo on
 ninja -C out/x%build_target%_%build_type%
-
+@echo off
 
 cd %current_dir%
 echo Back to the original directory: %CD%
 
-echo %current_dir% | findstr /C:"c:" >nul
+echo %current_dir% | findstr /C:"C:" >nul
 if %errorlevel%==0 (
-    echo "c:" found in current_dir
+    echo "C:" found in current_dir
     c:
 ) else (
-    echo "c:" not found in current_dir
+    echo "C:" not found in current_dir
 )
