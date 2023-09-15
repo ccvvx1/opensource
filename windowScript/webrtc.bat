@@ -66,3 +66,4 @@ ninja -C out/x%build_target%_%build_type%
 
 cd %current_dir%
 echo Back to the original directory: %CD%
+c:
