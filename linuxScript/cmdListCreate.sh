@@ -11,3 +11,5 @@ sudo ml repo/mountImage.sh mi
 sudo ml cleanDocker.sh cleard
 sudo ml startChrome.sh chrome
 sudo ml startRedroid.sh re
+sudo ml jupyter.sh jp
+sudo ml startWineProxy.sh wp

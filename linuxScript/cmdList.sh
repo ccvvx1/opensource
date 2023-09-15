@@ -13,4 +13,6 @@ echo    mi             --mount and image and create docker
 echo    cleard         --clear docker cache
 echo    chrome         --start chrome by proxy
 echo    re             --start redroid docker
+echo    jp             --python jupyter
+echo    wp             --wine fg799p
 echo    ======================================
