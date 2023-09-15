@@ -66,4 +66,11 @@ ninja -C out/x%build_target%_%build_type%
 
 cd %current_dir%
 echo Back to the original directory: %CD%
-c:
+
+echo %current_dir% | findstr /C:"c:" >nul
+if %errorlevel%==0 (
+    echo "c:" found in current_dir
+    c:
+) else (
+    echo "c:" not found in current_dir
+)
