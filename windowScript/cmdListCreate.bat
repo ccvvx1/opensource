@@ -20,6 +20,7 @@ call :executeCommand "ml pr.bat setProxy.bat -s b"
 call :executeCommand "ml ap.bat adbPush.bat -s b"
 call :executeCommand "ml pr.bat setProxy.bat -s b"
 call :executeCommand "ml prs.bat setSimpleProxy.bat -s b"
+call :executeCommand "ml webrtc.bat webrtc.bat -s b"
 
 :: ´òÓ¡´íÎó¼ÆÊýÆ÷
 echo Total errors: %errorCount%

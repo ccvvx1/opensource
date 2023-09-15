@@ -14,6 +14,7 @@ echo    ff           --create video
 echo    pr           --setProxy
 echo    ap           --adb push
 echo    prs          --set simple Proxy
+echo    webrtc       --build webrtc 
 echo    ========================
 echo    clion.lnk    --clion app
 echo    go.lnk       --goland app
