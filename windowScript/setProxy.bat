@@ -11,6 +11,9 @@ if "%1"=="set" (
         echo Setting proxy to 127.0.0.1:!proxy!...
         ::创建注册表项
         reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyServer /t REG_SZ /d "127.0.0.1:!proxy!" /f
+        reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyOverride /t REG_SZ /d "*.tmw-m410;<local>" /f
+
+
         ::启用代理
         reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyEnable /t REG_DWORD /d 1 /f
         ::netsh winhttp set proxy proxy-server="http=!proxy!;https=!proxy!" bypass-list="*.local"
