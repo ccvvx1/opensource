@@ -13,9 +13,11 @@ cd /d "%source_folder%" || exit /b
 
 set /a count=0
 
-for %%f in (*.jpg) do (
+for %%f in (*.jpg *.png) do (
     set /a count+=1
-    ren "%%f" "!count!.png"
+    set "filename=0000!count!"
+    set "filename=br_!filename:~-5!_0.jpg"
+    ren "%%f" "!filename!"
 )
 
 echo Renaming completed.
