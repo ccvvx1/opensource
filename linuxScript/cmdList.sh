@@ -15,4 +15,5 @@ echo    chrome         --start chrome by proxy
 echo    re             --start redroid docker
 echo    jp             --python jupyter
 echo    wp             --wine fg799p
+echo    nf             --naifu
 echo    ======================================
