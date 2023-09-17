@@ -11,7 +11,7 @@ if "%1"=="set" (
         echo Setting proxy to 127.0.0.1:!proxy!...
         ::创建注册表项
         reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyServer /t REG_SZ /d "127.0.0.1:!proxy!" /f
-        reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyOverride /t REG_SZ /d "*.tmw-m410;*.6vw.cc;*.haokongbu.top;*.mandudu.com;<local>" /f
+        reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyOverride /t REG_SZ /d "*.tmw-m410;*.6vw.cc;*.haokongbu.top;*.mandudu.com;mrdeepfakes.com;mrdeepfakes.com;<local>" /f
 
 
         ::启用代理
