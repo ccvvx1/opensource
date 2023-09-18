@@ -17,6 +17,7 @@ echo    prs          --set simple Proxy
 echo    webrtc       --build webrtc 
 echo    cwh          --copy webrtc header
 echo    jp           --jpg 2 png
+echo    wb           --window build
 echo    ========================
 echo    clion.lnk    --clion app
 echo    go.lnk       --goland app
