@@ -18,6 +18,7 @@ echo    webrtc       --build webrtc
 echo    cwh          --copy webrtc header
 echo    jp           --jpg 2 png
 echo    wb           --window build
+echo    webrtc       --webrtc build
 echo    ========================
 echo    clion.lnk    --clion app
 echo    go.lnk       --goland app

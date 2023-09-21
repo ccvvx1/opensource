@@ -46,18 +46,19 @@ u:
 
 set DEPOT_TOOLS_WIN_TOOLCHAIN=0
 set GYP_GENERATORS=ninja,msvs-ninja
-set GYP_MSVS_OVERRIDE_PATH=U:\Program Files (x86)\Microsoft Visual Studio\2019\Professional
+::set GYP_MSVS_OVERRIDE_PATH=U:\Program Files (x86)\Microsoft Visual Studio\2019\Professional
+set GYP_MSVS_OVERRIDE_PATH=U:\Program Files\Microsoft Visual Studio\2022\Professional
 set PATH=U:\env\zhidao\src\buildtools\win;U:\env\zhidao\depot_tools;%PATH%;
 set DEPOT_TOOLS_UPDATE=0
 ::git config --get http.proxy
 ::git config --global http.proxy %HTTP_PROXY%
 ::set https_proxy=http://127.0.0.1:1081
 ::set http_proxy=http://127.0.0.1:1081
-set GYP_MSVS_VERSION=2019
+set GYP_MSVS_VERSION=2022
 
 echo Generating Ninja build files for x%build_target% %build_type%...
 @echo on
-gn gen --target=x%build_target% --args="is_clang=false is_debug=%is_debug% use_rtti=true rtc_include_tests=false rtc_libvpx_build_vp9=true enable_iterator_debugging=true symbol_level=0 proprietary_codecs=true use_openh264=true ffmpeg_branding=\"Chrome\"" --ide=vs2019 out/x%build_target%_%build_type%
+gn gen --target=x%build_target% --args="is_clang=false is_debug=%is_debug% use_rtti=true rtc_include_tests=false rtc_libvpx_build_vp9=true enable_iterator_debugging=true symbol_level=0 proprietary_codecs=true use_openh264=true ffmpeg_branding=\"Chrome\"" --ide=vs2022 out/x%build_target%_%build_type%
 @echo off
 echo Building WebRTC for x%build_target% %build_type%...
 @echo on
