@@ -58,7 +58,7 @@ set GYP_MSVS_VERSION=2022
 
 echo Generating Ninja build files for x%build_target% %build_type%...
 @echo on
-gn gen --target=x%build_target% --args="is_clang=false is_debug=%is_debug% use_rtti=true rtc_include_tests=false rtc_libvpx_build_vp9=true enable_iterator_debugging=true symbol_level=0 proprietary_codecs=true use_openh264=true ffmpeg_branding=\"Chrome\"" --ide=vs2022 out/x%build_target%_%build_type%
+gn gen --target=x%build_target% --args="is_clang=false is_debug=%is_debug% use_rtti=true rtc_include_tests=false rtc_libvpx_build_vp9=true enable_iterator_debugging=true symbol_level=0 proprietary_codecs=true use_openh264=true ffmpeg_branding=\"Chrome\"" out/x%build_target%_%build_type%
 @echo off
 echo Building WebRTC for x%build_target% %build_type%...
 @echo on

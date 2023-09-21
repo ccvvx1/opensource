@@ -2,7 +2,7 @@
 :: Check the number of passed parameters
 if "%~5"=="" (
     echo Usage: BuildSolution.bat [Solution File] [Build Target] [Configuration] [Platform]
-    echo e.g. %0 YourSolution.sln [Build^|b^|Rebuild^|r] [Debug^|d^|Release^|r] [64|86]
+    echo e.g. %0 YourSolution.sln [Build^|b^|Rebuild^|r] [Debug^|d^|Release^|r] [64^|86]
     echo e.g. %0 YourSolution.sln b d 64
 
     exit /b 1
