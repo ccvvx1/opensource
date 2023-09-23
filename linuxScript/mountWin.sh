@@ -2,8 +2,8 @@
 
 # Check the number of arguments
 if [ "$#" -ne 3 ]; then
-  echo "Usage: $0 [1^|0] <Server IP Address> <Share Name>"
-  echo e.g. $0 1 192.168.0.105 U$$
+  echo "Usage: $0 [1|0] <Server IP Address> <Share Name>"
+  echo e.g. $0 1 192.168.0.105 U\$
   echo e.g. $0 0
   exit 1
 fi
