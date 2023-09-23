@@ -2,14 +2,16 @@
 
 # Check the number of arguments
 if [ "$#" -ne 3 ]; then
-  echo "Usage: $0 <Server IP Address> <Share Name> <0 or 1>"
+  echo "Usage: $0 [1^|0] <Server IP Address> <Share Name>"
+  echo e.g. $0 1 192.168.0.105 U$$
+  echo e.g. $0 0
   exit 1
 fi
 
 # Get values from the parameters
-server_ip="$1"
-share_name="$2"
-b_umount="$3"
+server_ip="$2"
+share_name="$3"
+b_umount="$1"
 
 if [ "$b_umount" == "1" ]; then
   # Mount the Samba share
