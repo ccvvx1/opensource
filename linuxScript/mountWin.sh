@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check the number of arguments
-if [ "$#" -ne 3 ]; then
+if [ "$#" -ne 1 ]; then
   echo "Usage: $0 [1|0] <Server IP Address> <Share Name>"
   echo e.g. $0 1 192.168.0.105 U\$
   echo e.g. $0 0
