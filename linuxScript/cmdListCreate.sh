@@ -15,3 +15,4 @@ sudo ml jupyter.sh jp
 sudo ml startWineProxy.sh wp
 sudo ml startNaifu.sh nf
 sudo ml mountWin.sh mw
+sudo ml tencent.sh tx
