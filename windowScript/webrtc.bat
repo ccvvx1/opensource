@@ -41,14 +41,14 @@ if "%2"=="r" (
 set current_dir=%CD%
 echo Current directory is: %current_dir%
 
-cd U:\env\zhidaoNew\src
+cd U:\env\zhidaoNewest\src
 u:
 
 set DEPOT_TOOLS_WIN_TOOLCHAIN=0
 set GYP_GENERATORS=ninja,msvs-ninja
 ::set GYP_MSVS_OVERRIDE_PATH=U:\Program Files (x86)\Microsoft Visual Studio\2019\Professional
 set GYP_MSVS_OVERRIDE_PATH=U:\Program Files\Microsoft Visual Studio\2022\Professional
-set PATH=U:\env\zhidaoNew\src\buildtools\win;U:\env\zhidaoNew\depot_tools;%PATH%;
+set PATH=U:\env\zhidaoNewest\src\buildtools\win;U:\env\zhidaoNewest\depot_tools;%PATH%;
 set DEPOT_TOOLS_UPDATE=0
 ::git config --get http.proxy
 ::git config --global http.proxy %HTTP_PROXY%
