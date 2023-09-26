@@ -18,4 +18,5 @@ echo    wp             --wine fg799p
 echo    nf             --naifu
 echo    mw             --mount window samba
 echo    tx             --tencent highlight image
+echo    sd             --sad talk
 echo    ======================================
