@@ -19,4 +19,5 @@ echo    nf             --naifu
 echo    mw             --mount window samba
 echo    tx             --tencent highlight image
 echo    sd             --sad talk
+echo    mat            --mat v2
 echo    ======================================
