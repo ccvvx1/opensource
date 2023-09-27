@@ -3,7 +3,7 @@
 # 检查参数数量
 if [ $# -ne 1 ]; then
   echo "Usage: $0 <input_parameter>"
-  echo "Example: $0 anne.jpg"
+  echo "Example: $0 anne"
   exit 1
 fi
 
@@ -20,4 +20,4 @@ cd /mnt/tmw/module/python/makeittalk/MakeItTalk
 hello=$(cat ~/tmp/hello.txt)
 
 # 运行 Python 脚本并传递命令行参数
-python ${hello}/makeittalk.py --jpg "$1"
+python ${hello}/makeittalk.py --jpg "$1".jpg
