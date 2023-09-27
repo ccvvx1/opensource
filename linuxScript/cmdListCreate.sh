@@ -19,3 +19,4 @@ sudo ml tencent.sh tx
 sudo ml sadtalk.sh sd
 sudo ml matv2.sh mat
 sudo ml pwd.sh hello
+sudo ml soVitsSvc.sh so
