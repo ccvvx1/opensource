@@ -22,6 +22,7 @@ del u:\application\cl.bat
 del u:\application\cwh.bat
 del u:\application\jp.bat
 del u:\application\wb.bat
+del u:\application\lw.bat
 
 :: 使用 executeCommand 函数执行每一行命令
 call :executeCommand "ml clc.bat cmdListCreate.bat -s b"
@@ -41,6 +42,7 @@ call :executeCommand "ml webrtc.bat webrtc.bat -s b"
 call :executeCommand "ml cwh.bat cpWebrtcHeader.bat -s b"
 call :executeCommand "ml jp.bat renJpg2Png.bat -s b"
 call :executeCommand "ml wb.bat startWinBuild.bat -s b"
+call :executeCommand "ml lw.bat listWebrtc.bat -s b"
 
 :: 打印错误计数器
 echo Total errors: %errorCount%
