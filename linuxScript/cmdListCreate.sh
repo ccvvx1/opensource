@@ -24,3 +24,4 @@ sudo ml bringToLife.sh br
 sudo ml nvidia.sh nv
 sudo ml makeittalk.sh mt
 sudo ml listWebrtc.sh lw
+sudo ml wLw.sh wlw
