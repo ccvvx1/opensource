@@ -21,13 +21,15 @@ find "$root_folder" -type d -name '.git' -exec sh -c '
   # 获取子模块的当前分支
   submodule_branch=$(git -C "$submodule_dir" rev-parse --abbrev-ref HEAD)
 
-  # 获取子模块的当前 commit SHA 值
-  submodule_commit=$(git -C "$submodule_dir" rev-parse HEAD)
-
-  # 打印子模块信息，包括 URL、路径、分支和 SHA 值
+  # 打印子模块信息，包括 URL、路径、当前分支和 SHA 值
   echo "Submodule Path: $submodule_path"
   echo "Submodule URL: $submodule_url"
   echo "Submodule Branch: $submodule_branch"
-  echo "Submodule Commit SHA: $submodule_commit"
+
+  # 获取并打印所有分支
+  git -C "$submodule_dir" branch | while read branch; do
+    echo "Branch: $branch"
+  done
+
   echo "----------------------------------"
 ' \;
