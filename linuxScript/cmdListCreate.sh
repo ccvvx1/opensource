@@ -21,3 +21,5 @@ sudo ml matv2.sh mat
 sudo ml pwd.sh hello
 sudo ml soVitsSvc.sh so
 sudo ml bringToLife.sh br
+sudo ml nvidia.sh nv
+sudo ml makeittalk.sh mt
