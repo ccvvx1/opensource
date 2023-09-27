@@ -6,11 +6,13 @@ if [ $# -ne 1 ]; then
     exit 1
 fi
 
+cd /mnt/tmw/module/python/bring/photo_restoration/
+. /mnt/tmw/module/python/bring/venv/bin/activate1
+
 # 参数为0时执行操作
 if [ $1 -eq 0 ]; then
     echo "recover"
-    cd /mnt/tmw/module/python/bring/photo_restoration/
-    . /mnt/tmw/module/python/bring/venv/bin/activate1
+    rm -rf ./output/*
     python run.py --input_folder ./test_images/old --output_folder ./output/ --GPU 0
 
 fi
