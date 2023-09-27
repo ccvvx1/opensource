@@ -22,4 +22,5 @@ echo    sd             --sad talk
 echo    mat            --mat v2
 echo    hello          --set pwd as param hello
 echo    so             --soVitsSvc
+echo    br             --bring to life
 echo    ======================================
