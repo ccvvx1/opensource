@@ -2,4 +2,4 @@
 export PYTHONPATH=/mnt/tmw/module/python/makeittalk/MakeItTalk:$PYTHONPATH
 cd /mnt/tmw/module/python/makeittalk/MakeItTalk
 export hello=$(cat ~/tmp/hello.txt)
-python ${hello}/makeittalk.py
+python ${hello}/makeittalk.py wwwwwwwwwwwwwwwwwwwwwwwwwwwww
