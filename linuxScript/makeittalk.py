@@ -143,7 +143,13 @@ with open(os.path.join('examples', 'dump', 'random_val_au.pickle'), 'wb') as fp:
 with open(os.path.join('examples', 'dump', 'random_val_gaze.pickle'), 'wb') as fp:
     gaze = {'rot_trans':rot_tran, 'rot_quat':rot_quat, 'anchor_t_shape':anchor_t_shape}
     pickle.dump(gaze, fp)
-    
+
+model = Audio2landmark_model(opt_parser, jpg_shape=shape_3d)
+if(len(opt_parser.reuse_train_emb_list) == 0):
+    model.test(au_emb=au_emb)
+else:
+    model.test(au_emb=None)
+        
 fls = glob.glob1('examples', 'pred_fls_*.txt')
 fls.sort()
 
