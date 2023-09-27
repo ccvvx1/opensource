@@ -15,6 +15,16 @@ import util.utils as util
 from scipy.signal import savgol_filter
 from src.approaches.train_audio2landmark import Audio2landmark_model
 
+# 获取命令行参数
+args = sys.argv
+
+# 第一个参数是脚本的名称，所以我们从第二个参数开始获取
+if len(args) >= 2:
+    parameter = args[1]
+    print("Parameter value is:", parameter)
+else:
+    print("No parameter provided")
+    
 
 default_head_name = 'anne'           # the image name (with no .jpg) to animate
 ADD_NAIVE_EYE = True                 # whether add naive eye blink
