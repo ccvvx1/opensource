@@ -3,7 +3,7 @@
 # 检查参数数量
 if [ $# -ne 1 ]; then
   echo "Usage: $0 <input_parameter>"
-  echo "Example: $0 anne"
+  echo "Example: $0 anne.jpg"
   exit 1
 fi
 
