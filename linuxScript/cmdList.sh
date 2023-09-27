@@ -25,4 +25,5 @@ echo    so             --soVitsSvc
 echo    br             --bring to life
 echo    nv             --u
 echo    mt             --make it talk
+echo    lw             --list webrtc
 echo    ======================================
