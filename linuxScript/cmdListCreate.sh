@@ -26,4 +26,4 @@ sudo ml makeittalk.sh mt
 sudo ml listWebrtc.sh lw
 sudo ml wLw.sh wlw
 sudo ml pose.sh pose
-sudo ml panoHead.sh head
+sudo ml panoHead.sh pano
