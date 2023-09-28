@@ -27,4 +27,5 @@ echo    nv             --u
 echo    mt             --make it talk
 echo    lw             --list webrtc
 echo    wlw            --wirte sh for list webrtc
+echo    pose           --pose 
 echo    ======================================
