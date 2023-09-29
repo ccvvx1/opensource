@@ -27,3 +27,4 @@ sudo ml listWebrtc.sh lw
 sudo ml wLw.sh wlw
 sudo ml pose.sh pose
 sudo ml panoHead.sh pano
+sudo ml resetNet.sh rn
