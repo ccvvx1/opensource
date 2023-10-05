@@ -30,4 +30,5 @@ echo    wlw            --wirte sh for list webrtc
 echo    pose           --pose 
 echo    pano           --pano head 
 echo    rn             --reset net work 
+echo    rc             --reclone 
 echo    ======================================

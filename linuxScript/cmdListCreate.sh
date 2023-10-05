@@ -28,3 +28,4 @@ sudo ml wLw.sh wlw
 sudo ml pose.sh pose
 sudo ml panoHead.sh pano
 sudo ml resetNet.sh rn
+sudo ml reclone.sh rcs
