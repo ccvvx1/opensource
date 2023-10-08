@@ -25,12 +25,13 @@ echo    clion.lnk    --clion app
 echo    go.lnk       --goland app
 echo    ue.lnk       --ultraedit app
 echo    py.lnk       --pycharm app
+echo    mn.lnk       --miniconda
 echo    ========================
 
-::REM 设置选项
+::REM 锟斤拷锟斤拷选锟斤拷
 ::set "options=Option: ml Option: df Option: cf Option: pc Option: cdll Option: getSysInfo Option: my Option: webp Option: ff Option: pr Option: clion.lnk Option: go.lnk  Option: go.lnk"
 
-::REM 显示选项并等待用户输入
+::REM 锟斤拷示选锟筋并锟饺达拷锟矫伙拷锟斤拷锟斤拷
 ::echo    Select an option:
 ::setlocal enabledelayedexpansion
 ::set "counter=1"
@@ -45,7 +46,7 @@ echo    ========================
 ::endlocal
 ::set /p "choice=Enter the number of your choice: "
 
-::REM 处理用户选择
+::REM 锟斤拷锟斤拷锟矫伙拷选锟斤拷
 ::set "selected="
 ::setlocal enabledelayedexpansion
 ::set "counter=0"
