@@ -20,6 +20,7 @@ echo    jp           --jpg 2 png
 echo    wb           --window build
 echo    webrtc       --webrtc build
 echo    lw           --list webrtc
+echo    mn           --miniconda.lnk
 echo    ========================
 echo    clion.lnk    --clion app
 echo    go.lnk       --goland app
