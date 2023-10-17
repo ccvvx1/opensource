@@ -1,0 +1,1 @@
+sudo docker run -it -v /home/tmw/module/cpp:/cpp -v /mnt/hgfs/E/backup/:/data --network=host tmw:20

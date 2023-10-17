@@ -3,6 +3,7 @@ echo    ml             --make link
 echo    sm             --mount disk
 echo    rp             --newest repo
 echo    rpr            --run repo docker
+echo    dd             --docker download google drive
 echo    cl             --cmd list
 echo    tmp            --show tmp content
 echo    wtmp           --write to tmp file
