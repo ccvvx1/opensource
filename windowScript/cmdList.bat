@@ -21,6 +21,7 @@ echo    wb           --window build
 echo    webrtc       --webrtc build
 echo    lw           --list webrtc
 echo    mn           --miniconda.lnk
+echo    ue           --ultra edit.lnk
 echo    ========================
 echo    clion.lnk    --clion app
 echo    go.lnk       --goland app

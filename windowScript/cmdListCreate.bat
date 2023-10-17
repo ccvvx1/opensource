@@ -45,6 +45,7 @@ call :executeCommand "ml jp.bat renJpg2Png.bat -s b"
 call :executeCommand "ml wb.bat startWinBuild.bat -s b"
 call :executeCommand "ml lw.bat listWebrtc.bat -s b"
 call :executeCommand "ml mn.bat miniconda.bat -s b"
+call :executeCommand "ml ue.bat ultraedit.bat -s b"
 
 :: ´òÓ¡´íÎó¼ÆÊýÆ÷
 echo Total errors: %errorCount%
