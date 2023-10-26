@@ -17,6 +17,7 @@ git add windowScript/*
 git add linuxScript/*
 git add ueScript/*
 git add mysysScript/*
+git add js/*
 
 # Display the user's input comment again
 echo "$var"
