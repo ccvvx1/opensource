@@ -20,9 +20,10 @@ echo    jp           --jpg 2 png
 echo    wb           --window build
 echo    webrtc       --webrtc build
 echo    lw           --list webrtc
+echo    ab           --android build
+echo    ========================
 echo    mn           --miniconda.lnk
 echo    ue           --ultra edit.lnk
-echo    ========================
 echo    clion.lnk    --clion app
 echo    go.lnk       --goland app
 echo    ue.lnk       --ultraedit app
