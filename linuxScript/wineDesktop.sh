@@ -1,0 +1,1 @@
+wine explorer /desktop=shell,800x600 winecfg

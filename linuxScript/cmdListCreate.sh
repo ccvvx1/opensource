@@ -30,3 +30,4 @@ sudo ml panoHead.sh pano
 sudo ml resetNet.sh rn
 sudo ml reclone.sh rcs
 sudo ml dockerDownload.sh dd
+sudo ml wineDesktop.sh wd
