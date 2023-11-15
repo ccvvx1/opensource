@@ -11,9 +11,9 @@ fi
 # 检查是否提供了第二个参数
 if [ "$2" ]; then
     # 使用提供的关键字进行查找
-    find . -type f -name "*$1*" -printf "%f\n" | grep --color=auto "$1"
+    find . -type f -iname "*$1*" -printf "%f\n" | grep --color=auto "$1"
 else 
 	# 使用提供的关键字进行查找并显示文件路径
-	find . -type f -name "*$1*" -print | grep --color=auto "$1"
+	find . -type f -iname "*$1*" -print | grep --color=auto "$1"
 fi
 
