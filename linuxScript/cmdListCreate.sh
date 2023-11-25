@@ -31,3 +31,5 @@ sudo ml resetNet.sh rn
 sudo ml reclone.sh rcs
 sudo ml dockerDownload.sh dd
 sudo ml wineDesktop.sh wd
+sudo ml egrep.sh eg
+sudo ml find.sh fd

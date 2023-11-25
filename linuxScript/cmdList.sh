@@ -33,4 +33,6 @@ echo    pano           --pano head
 echo    rn             --reset net work 
 echo    rc             --reclone 
 echo    wd             --wine desktop 
+echo    eg             --egrep  
+echo    fd             --find  
 echo    ======================================
