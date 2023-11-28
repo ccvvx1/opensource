@@ -1,0 +1,1 @@
+https://github.com/skylot/jadx/releases/tag/v1.4.7

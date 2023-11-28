@@ -1,0 +1,1 @@
+aapt.exe dump badging obj_signed.apk

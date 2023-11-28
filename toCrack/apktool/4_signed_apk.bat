@@ -1,0 +1,1 @@
+%JAVA_HOME%\bin\jarsigner.exe -verbose -keystore abc.keystore -signedjar obj_signed.apk obj_unsigned.apk abc.keystore
