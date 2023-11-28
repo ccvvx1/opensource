@@ -21,6 +21,7 @@ echo    wb           --window build
 echo    webrtc       --webrtc build
 echo    lw           --list webrtc
 echo    ab           --android build
+echo    jj           --set up env JAVA_HOME to jdk21
 echo    ========================
 echo    mn           --miniconda.lnk
 echo    ue           --ultra edit.lnk
