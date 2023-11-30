@@ -2,7 +2,27 @@
 #include <string>
 #include "CPHMediaCommon.h"
 #include "CPHMediaEngine.h"
+#include "native-lib.h"
 #include <android/log.h>
+
+int CphEngineControl::Init(){
+    std::lock_guard<std::mutex> lock(m_initLock);
+    if (m_cphMediaEngine == nullptr) {
+        m_cphMediaEngine = new CPHMediaEngine();
+        if (m_cphMediaEngine == nullptr) {
+            __android_log_print(ANDROID_LOG_INFO, "CphDemo", "Init failed, failed to new CPHMediaEngine.");
+            return -1;
+        }
+    }
+    return 0;
+}
+
+CphEngineControl &CphEngineControl::GetInstance()
+{
+    static CphEngineControl instance;
+    instance.Init();
+    return instance;
+}
 
 extern "C"
 JNIEXPORT jstring JNICALL
@@ -53,7 +73,6 @@ Java_com_chinamobile_cphsdk2demo_cphlibs_JniEntrance_InjectTouchData(JNIEnv *env
     uint8_t cppPointerID = static_cast<uint8_t>(pointerIDValue);
 
     //调用方法
-    CPHMediaEngine cphMediaEngine;
     CPHTouchEvent cphTouchEvent;
     OperationInputData operationInputData;
     cphTouchEvent.pointerID = cppPointerID;
@@ -65,7 +84,7 @@ Java_com_chinamobile_cphsdk2demo_cphlibs_JniEntrance_InjectTouchData(JNIEnv *env
     operationInputData.physicalWidth = cppPhysicalWidth;
     operationInputData.physicalHeight = cppPhysicalHeight;
     operationInputData.inputData = cphTouchEvent;
-    int ret = cphMediaEngine.InjectTouchData(operationInputData);
+    int ret = CphEngineControl::GetInstance().m_cphMediaEngine->InjectTouchData(operationInputData);
     return ret;
 }
 extern "C"
@@ -82,10 +101,9 @@ Java_com_chinamobile_cphsdk2demo_cphlibs_JniEntrance_InjectKeyData(JNIEnv *env, 
     uint16_t cppAction = static_cast<uint16_t>(actionValue);
 
     CPHKeyInputData inputKey;
-    CPHMediaEngine cphMediaEngine;
     inputKey.keyCode = cppkeyCode;
     inputKey.action = cppAction;
-    int ret = cphMediaEngine.InjectKeyData(inputKey); // 音量加键按下
+    int ret = CphEngineControl::GetInstance().m_cphMediaEngine->InjectKeyData(inputKey); // 音量加键按下
     return ret;
 }
 
@@ -112,31 +130,31 @@ Java_com_chinamobile_cphsdk2demo_cphlibs_JniEntrance_InitAudio(JNIEnv *env, jobj
     uint32_t cppSampleRate = static_cast<uint32_t>(sampleRateValue);
 
     AudioConfigParams audioConfigParams;
-    CPHMediaEngine cphMediaEngine;
+    //CPHMediaEngine cphMediaEngine;
     audioConfigParams.audioType = cppAudioType;
     audioConfigParams.sampleInterval = cppSampleInterval;
     audioConfigParams.sampleRate = cppSampleRate;
-    int ret = cphMediaEngine.InitAudio(audioConfigParams,TestAudioCallback);
+    int ret = CphEngineControl::GetInstance().m_cphMediaEngine->InitAudio(audioConfigParams,TestAudioCallback);
     return ret;
 
 }
 extern "C"
 JNIEXPORT jint JNICALL
 Java_com_chinamobile_cphsdk2demo_cphlibs_JniEntrance_StartAudio(JNIEnv *env, jobject thiz) {
-    CPHMediaEngine cphMediaEngine;
-    return cphMediaEngine.StartAudio();
+    //CPHMediaEngine cphMediaEngine;
+    return CphEngineControl::GetInstance().m_cphMediaEngine->StartAudio();
 }
 extern "C"
 JNIEXPORT jint JNICALL
 Java_com_chinamobile_cphsdk2demo_cphlibs_JniEntrance_StopAudio(JNIEnv *env, jobject thiz) {
-    CPHMediaEngine cphMediaEngine;
-    return cphMediaEngine.StopAudio();
+    //CPHMediaEngine cphMediaEngine;
+    return CphEngineControl::GetInstance().m_cphMediaEngine->StopAudio();
 }
 extern "C"
 JNIEXPORT jint JNICALL
 Java_com_chinamobile_cphsdk2demo_cphlibs_JniEntrance_DestroyAudio(JNIEnv *env, jobject thiz) {
-    CPHMediaEngine cphMediaEngine;
-    return cphMediaEngine.DestroyAudio();
+    //CPHMediaEngine cphMediaEngine;
+    return CphEngineControl::GetInstance().m_cphMediaEngine->DestroyAudio();
 }
 extern "C"
 JNIEXPORT jobject JNICALL
@@ -157,8 +175,8 @@ Java_com_chinamobile_cphsdk2demo_cphlibs_JniEntrance_GetAudioStatus(JNIEnv *env,
     jobject runningValue = env->GetStaticObjectField(mediaStatusClass, runningField);
     jobject stoppedValue = env->GetStaticObjectField(mediaStatusClass, stoppedField);
 
-    CPHMediaEngine cphMediaEngine;
-    MediaStatus mediaStatus = cphMediaEngine.GetAudioStatus();
+    //CPHMediaEngine cphMediaEngine;
+    MediaStatus mediaStatus = CphEngineControl::GetInstance().m_cphMediaEngine->GetAudioStatus();
 
     if (mediaStatus == INVALID){
         return invalidValue;
@@ -188,8 +206,8 @@ Java_com_chinamobile_cphsdk2demo_cphlibs_JniEntrance_SetAudioParams(JNIEnv *env,
     AudioParams  audioParams;
     audioParams.sampleInterval = cppSampleInterval;
     audioParams.bitrate = cppBitrate;
-    CPHMediaEngine cphMediaEngine;
-    return cphMediaEngine.SetAudioParams(audioParams);
+    //CPHMediaEngine cphMediaEngine;
+    return CphEngineControl::GetInstance().m_cphMediaEngine->SetAudioParams(audioParams);
 }
 
 static void TestVideoCallback(uint8_t* buffer, uint32_t length, VideoCallbackExt &videoCallbackExt)
@@ -222,7 +240,7 @@ Java_com_chinamobile_cphsdk2demo_cphlibs_JniEntrance_InitVideo(JNIEnv *env, jobj
     VideoConfigParams videoConfigParams;
     videoConfigParams.physicalResolution = physicalResolution;
 
-    CPHMediaEngine cphMediaEngine;
-    int ret = cphMediaEngine.InitVideo(videoConfigParams,TestVideoCallback);
+    //CPHMediaEngine cphMediaEngine;
+    int ret = CphEngineControl::GetInstance().m_cphMediaEngine->InitVideo(videoConfigParams,TestVideoCallback);
     return ret;
 }
