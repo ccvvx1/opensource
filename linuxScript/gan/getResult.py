@@ -44,7 +44,7 @@ class CustomDataset(Dataset):
 
 class Opt(object):
     dim = 10
-    n_epochs = 1000
+    n_epochs = 10
     batch_size = dim*dim
     lr = 0.0002
     b1 = 0.5
@@ -159,6 +159,7 @@ discriminator.train()
 saved_imgs = []
 for epoch in range(opt.n_epochs):
     print('Epoch ' + str(epoch) + ' training...' , end=' ')
+    print('\n')
     start = time()
     for i, (imgs, _) in enumerate(dataloader):
         real = Variable(Tensor(imgs.size(0), 1).fill_(1.0), requires_grad=False)
@@ -204,8 +205,8 @@ for epoch in range(opt.n_epochs):
 torch.save(generator.state_dict(), './data/final_generator.pth')
 torch.save(discriminator.state_dict(), './data/final_discriminator.pth')    
 
-# img_indexes = [0, 4, 9]
-img_indexes = [0, 4, 9, 49, 99, 749, 999]
+img_indexes = [0, 4, 9]
+# img_indexes = [0, 4, 9, 49, 99, 749, 999]
 # img_indexes = [99699, 99799, 99899, 99999]
 for i in img_indexes:
     plt.figure(figsize = (opt.dim, opt.dim))
