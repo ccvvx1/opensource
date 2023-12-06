@@ -39,22 +39,28 @@ cuda = True if torch.cuda.is_available() else False
 class Generator(nn.Module):
     def __init__(self):
         super(Generator, self).__init__()
-        def block(in_feat, out_feat, normalize=True):
-            layers = [nn.Linear(in_feat, out_feat)]
-            if normalize:
-                layers.append(nn.BatchNorm1d(out_feat, 0.8))
-            layers.append(nn.LeakyReLU(0.2, inplace=True))
-            return layers
-        self.model = nn.Sequential(
-            *block(opt.latent_dim, 128, normalize=False),
-            *block(128, 256),
-            *block(256, 512),
-            *block(512, 1024),
-            nn.Linear(1024, int(np.prod(img_shape))),
+
+        self.main = nn.Sequential(
+            # input is Z, going into a convolution
+            # nn.ConvTranspose2d( 1, 400, 7, 1, 1, bias=False),
+            # nn.BatchNorm2d(400),
+            # nn.ReLU(True),
+            nn.ConvTranspose2d( 1, 200, 6, 1, 0, bias=False),
+            nn.BatchNorm2d(200),
+            nn.ReLU(True),
+            # state size. ``(ngf*8) x 4 x 4``
+            nn.ConvTranspose2d(200, 100, 6, 2, 1, bias=False),
+            nn.BatchNorm2d(100),
+            nn.ReLU(True),
+            # state size. ``(ngf*4) x 8 x 8``
+            nn.ConvTranspose2d( 100, 1, 6, 2, 2, bias=False),
             nn.Tanh()
+            # state size. ``(nc) x 64 x 64``
         )
-    def forward(self, z):
-        img = self.model(z)
+
+    def forward(self, input):
+        # return self.main(input)
+        img = self.main(input)
         img = img.view(img.size(0), *img_shape)
         return img
 
@@ -64,22 +70,19 @@ class Discriminator(nn.Module):
 
         self.model = nn.Sequential(
             nn.Conv2d(1, 100, kernel_size=4, stride=2, padding=1, bias=False),
+            nn.BatchNorm2d(100),
             nn.LeakyReLU(0.2, inplace=True),
             nn.Conv2d(100, 128, kernel_size=4, stride=2, padding=1, bias=False),
+            nn.BatchNorm2d(128),
             nn.LeakyReLU(0.2, inplace=True),
             nn.Conv2d(128, 256, kernel_size=4, stride=2, padding=1, bias=False),
+            nn.BatchNorm2d(256),
             nn.LeakyReLU(0.2, inplace=True),
-            # nn.Flatten(),
-            # nn.Linear(100, 1),  # Adjust the size based on the output size of the previous layer
             nn.Conv2d(256, 1, kernel_size=4, stride=2, padding=1, bias=False),
             nn.Sigmoid(),
         )
 
     def forward(self, img):
-        # img_flat = img.view(img.size(0), -1)
-        # validity = self.model(img_flat)
-        # return validity
-        # print("image.shape: ", img.shape)
         validity = self.model(img)
         return validity
 bce_loss = torch.nn.BCELoss()
@@ -140,8 +143,9 @@ for epoch in range(opt.n_epochs):
         #  train Generator
         generator_optimizer.zero_grad()
         # sample noise as generator input
-        z = Variable(Tensor(np.random.normal(0, 1, (imgs.shape[0], opt.latent_dim))))
+        # z = Variable(Tensor(np.random.normal(0, 1, (imgs.shape[0], opt.latent_dim))))
         # generate a batch of images
+        z = torch.randn(100, 1, 1, 1).cuda()
         gen_imgs = generator(z)
         # loss measures generator's ability to fool the discriminator:
         # for the generated images, the generator wants the discriminator to think they're real (1)
