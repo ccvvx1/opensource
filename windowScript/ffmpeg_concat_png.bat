@@ -11,9 +11,9 @@ set image2=%2
 set output=%3
 
 echo 正在使用以下命令合并图片：
-echo ffmpeg -i %image1% -i %image2% -filter_complex hstack=inputs=2 %output%
+echo ffmpeg -i %image1%.png -i %image2%.png -filter_complex hstack=inputs=2 output\%output%.png
 
 REM 执行ffmpeg命令
-ffmpeg -i %image1% -i %image2% -filter_complex hstack=inputs=2 %output%
+ffmpeg -i %image1%.png -i %image2%.png -filter_complex hstack=inputs=2 output\%output%.png
 
 echo 合并完成。输出图片保存为: %output%
