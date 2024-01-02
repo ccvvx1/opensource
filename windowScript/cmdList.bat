@@ -11,6 +11,7 @@ echo    getSysInfo   --get System Info
 echo    my           --mySys Env set up
 echo    webp         --changeJpg2Webp
 echo    ff           --create video
+echo    ffc          --ffmpeg concat 2 images
 echo    pr           --setProxy
 echo    ap           --adb push
 echo    prs          --set simple Proxy
