@@ -27,6 +27,7 @@ del u:\application\mn.bat
 del u:\application\ab.bat
 del u:\application\jj.bat
 del u:\application\cdex.bat
+del u:\application\sg.bat
 
 :: 使用 executeCommand 函数执行每一行命令
 call :executeCommand "ml clc.bat cmdListCreate.bat -s b"
@@ -52,6 +53,7 @@ call :executeCommand "ml ue.bat ultraedit.bat -s b"
 call :executeCommand "ml ab.bat androidbuild.bat -s b"
 call :executeCommand "ml jj.bat setEnvJdk21.bat -s b"
 call :executeCommand "ml cdex.bat createDex.bat -s b"
+call :executeCommand "ml sg.bat sign.bat -s b"
 
 :: 打印错误计数器
 echo Total errors: %errorCount%
