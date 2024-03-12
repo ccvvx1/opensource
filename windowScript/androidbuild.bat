@@ -1,4 +1,4 @@
-@echo off
+@echo on
 setlocal enabledelayedexpansion
 
 del local.properties
@@ -21,7 +21,12 @@ endlocal
 
 
 set _JAVA_OPTIONS=-Xmx512m
-set JAVA_HOME=U:\Program Files (x86)\Java\jdk1.8.0_341
+echo "%1"
+if "%1" == "11" (
+  set JAVA_HOME="U:\Program Files (x86)\Java\jdk-11.0.21"
+) else (
+  set JAVA_HOME="U:\Program Files (x86)\Java\jdk1.8.0_341"
+)
 set ANDROID_NDK=U:\transfer\application\sdk\ndk\20.0.5594570
 
 gradlew.bat assembleDebug

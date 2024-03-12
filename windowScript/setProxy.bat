@@ -11,7 +11,7 @@ if "%1"=="set" (
         echo Setting proxy to 127.0.0.1:!proxy!...
         ::创建注册表项
         reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyServer /t REG_SZ /d "127.0.0.1:!proxy!" /f
-        reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyOverride /t REG_SZ /d "*.tmw.com;*.tmw-m410;*.lz-cdn7.com;*.pirate-bays.net;*.lz-cdn10.com;*.51.la;*.cbportal.org;*.6vw.cc;*.chinamobile.com;*.*.liuliangjia.cn;*.baisiweiting.com;*.haokongbu.top;*.lzcdn2.com;*.xlzyd.com;*.haokongbu123.com;*.mandudu.com;mrdeepfakes.com;mrdeepfakes.com;cmic.tools.bigcloudsys.cn;<local>" /f
+        reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyOverride /t REG_SZ /d "*.bcebos.com;*.tmw.com;*.tmw-m410;*.lz-cdn7.com;*.pirate-bays.net;*.lz-cdn10.com;*.51.la;*.cbportal.org;*.6vw.cc;*.chinamobile.com;*.*.liuliangjia.cn;*.baisiweiting.com;*.haokongbu.top;*.lzcdn2.com;*.xlzyd.com;*.haokongbu123.com;*.mandudu.com;mrdeepfakes.com;mrdeepfakes.com;cmic.tools.bigcloudsys.cn;<local>" /f
 
 
         ::启用代理
