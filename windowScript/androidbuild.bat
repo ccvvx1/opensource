@@ -1,4 +1,4 @@
-@echo on
+@echo off
 setlocal enabledelayedexpansion
 
 del local.properties
@@ -18,6 +18,9 @@ echo local.properties 文件已创建并配置。
 
 endlocal
 
+echo usage: ab 11 a
+echo a for all memory
+
 
 
 set _JAVA_OPTIONS=-Xmx512m
@@ -27,6 +30,9 @@ if "%1" == "11" (
 ) else (
   set JAVA_HOME="U:\Program Files (x86)\Java\jdk1.8.0_341"
 )
+if not "%2" == "" (
+  set _JAVA_OPTIONS=
+) 
 set ANDROID_NDK=U:\transfer\application\sdk\ndk\20.0.5594570
 
 gradlew.bat assembleDebug
